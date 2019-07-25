@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { getIngredientList, getIngredientDetails } from '../../util/api/apiFetch'
 import { connect } from 'react-redux'
 import { setIngredients } from '../../actions/index'
-
+import './Sidebar.scss'
 export class Sidebar extends Component {
   constructor(props) {
     super()

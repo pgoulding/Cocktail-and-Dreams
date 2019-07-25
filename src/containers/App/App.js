@@ -2,29 +2,24 @@ import React, { Component } from 'react'
 import { getIngredientList, getIngredientDetails } from '../../util/api/apiFetch'
 import Sidebar from '../Sidebar/Sidebar';
 import { connect } from 'react-redux'
-
+import Header from '../../components/Header/Header';
+import './App.css'
 export class App extends Component {
   constructor(){
     super()
     this.state ={
-      
+
     }
   }
   async componentDidMount() {
-
-    const details  = getIngredientDetails('Applejack')
-    // const ingredientDetails = ingredientList.map(async ingredient => {
-    //   const details = await getIngredientDetails(ingredient)
-    //   return details
-    // })
-    console.log(await details)
+    
   }
 
   render() {
     return (
       <main>
+        <Header />
         <Sidebar />
-        <p>whatup</p>
       </main>
     )
   }
