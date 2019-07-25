@@ -3,9 +3,9 @@ export const findIngredients = (ingredients) => ({
   ingredients
 })
 
-export const addIngredients = (ingredient) => ({
+export const setIngredients = (ingredients) => ({
   type:'ADD_INGREDIENTS',
-  ingredient
+  ingredients
 })
 
 export const setRecipes = (recipe) => ({
