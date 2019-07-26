@@ -1,7 +1,8 @@
 import {drinksApiKey} from '../apiKey'
 
 const listURL = `https://www.thecocktaildb.com/api/json/v1/${drinksApiKey}/list.php?`
-const searchURL = `https://www.thecocktaildb.com/api/json/v1/${drinksApiKey}/search.php?i=`
+const searchURL = `https://www.thecocktaildb.com/api/json/v1/${drinksApiKey}/search.php?`
+
 export const getIngredientList = async () => {
   try {
     const response = await fetch(`${listURL}i=list`)
@@ -14,14 +15,26 @@ export const getIngredientList = async () => {
 
 export const getIngredientDetails = async (ingredientName) => {
   try {
-    const response = await fetch(`${searchURL}${ingredientName}`)
-    console.log(response)
+    const response = await fetch(`${searchURL}i=${ingredientName}`)
     const parsed = await response.json()
-    console.log(await parsed)
     return parsed
   } catch (error) {
     throw Error(error.message)
   }
+}
+
+export const findDrinkbyName = async (drinkName) => {
+  try {
+    const response = await fetch(`${searchURL}s=${drinkName}`)
+    if(response.ok) {
+      const parsed = await response.json()
+      return parsed
+    } else {
+      throw Error('Failed to find drink.')
+    }
+  } catch (error) {
+    throw Error (error.message)
+}
 }
 
 

@@ -13,4 +13,8 @@ export const setRecipes = (recipe) => ({
   recipe
 })
 
+export const findExactCocktail=(cocktailName) => ({
+  type: 'FIND_EXACT_COCKTAIL',
+  cocktailName
+})
 

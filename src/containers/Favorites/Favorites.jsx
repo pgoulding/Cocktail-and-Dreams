@@ -1,22 +1,39 @@
-import React from 'react'
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
-const Favorites = () => {
-  
-  return (
-    <div>
+export class Favorites extends Component {
+  static propTypes = {
+    prop: PropTypes
+  }
+
+  showFavorites = () => {
+    this.props.favoriteCocktails.map(drink => {
       
-    </div>
-  )
+    })
+  }
+
+  render() {
+    if(!this.props.favoriteCocktails.length) {
+      return (
+        <h2>No Favorite Cocktails added yet</h2>
+      )
+    }
+    return (
+      <div>
+        
+      </div>
+    )
+  }
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = ({favoriteCocktails}) => ({
+  favoriteCocktails
+})
+
+const mapDispatchToProps =(dispatch) =>  ({
   
 })
 
-const mapDispatchToProps = (dispatch) => ({
-  
-})
+export default connect(mapStateToProps, mapDispatchToProps)(Favorites)
 
-
-export default connect(mapStateToProps,mapDispatchToProps)(Favorites)

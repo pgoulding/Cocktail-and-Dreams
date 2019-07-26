@@ -4,3 +4,19 @@ aside {
   grid-row: 2;
   padding:10px;
 }
+
+.ingredient__select-output {
+  height: 100px;
+  overflow: scroll;
+  border:2px solid rgb(58, 0, 83);
+  margin:5px;
+  button{
+    border:1px solid rgb(58, 0, 83);
+    outline: 0;
+    margin: 2px;
+    color: white;
+    text-shadow: 1px 1px 1px black;
+    background-color: violet;
+    border-radius: 4px;
+  }
+}

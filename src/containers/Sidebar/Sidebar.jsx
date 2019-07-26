@@ -20,6 +20,7 @@ export class Sidebar extends Component {
   addIngredients =(e) => {
     e.preventDefault()
     this.props.setIngredients(this.state.selectedIngredients)
+    this.setState({selectedIngredients:[]})
   }
 
   handleChange= (e) => {
@@ -30,6 +31,11 @@ export class Sidebar extends Component {
     }
   }
 
+  removeItem=(e) => {
+    e.preventDefault()
+    this.setState({selectedIngredients:[...this.state.selectedIngredients.filter(item => item !==e.target.value)]})
+  }
+
   optionsBlock = () => {
     return this.state.ingredientList.map(ingredient => {
       return <option value={ingredient.strIngredient1}>{ingredient.strIngredient1}</option>
@@ -38,7 +44,7 @@ export class Sidebar extends Component {
 
   selectedOption = () => {
     return this.state.selectedIngredients.map(selected => {
-      return <li>{selected}</li>
+      return <button value={selected} onClick={(e)=> this.removeItem(e)}>{selected}</button>
     })
   }
 
@@ -46,14 +52,14 @@ export class Sidebar extends Component {
     return (
       <aside>
         <h3>Select Ingredient</h3>
+        <div className='ingredient__select-output'>
+            {this.selectedOption()}
+        </div>
         <form>
           <select value={this.state.selectedIngredients} multiple onChange={this.handleChange}>
             {this.optionsBlock()}
           </select>
           <button onClick={(e)=> this.addIngredients(e)}>Add Ingredients</button>
-          <ul>
-            {this.selectedOption()}
-          </ul>
         </form>
       </aside>
     )
