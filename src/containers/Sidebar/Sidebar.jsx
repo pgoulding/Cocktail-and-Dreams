@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { getIngredientList, getIngredientDetails } from '../../util/api/apiFetch'
 import { connect } from 'react-redux'
-import { setIngredients } from '../../actions/index'
+import { addIngredients } from '../../actions/index'
 import './Sidebar.scss'
 export class Sidebar extends Component {
   constructor(props) {
@@ -17,9 +17,12 @@ export class Sidebar extends Component {
     this.setState({ingredientList})
   }
 
-  addIngredients =(e) => {
+  sendIngredientsToStore =async (e) => {
     e.preventDefault()
-    this.props.setIngredients(this.state.selectedIngredients)
+    const ingredientsList = await this.state.selectedIngredients
+      .map(async ingredient => getIngredientDetails(ingredient))
+    const returned = await Promise.all(ingredientsList)
+    this.props.addIngredients(returned)
     this.setState({selectedIngredients:[]})
   }
 
@@ -48,7 +51,7 @@ export class Sidebar extends Component {
     })
   }
 
-  render() {
+  render() { 
     return (
       <aside>
         <h3>Select Ingredient</h3>
@@ -59,7 +62,7 @@ export class Sidebar extends Component {
           <select value={this.state.selectedIngredients} multiple onChange={this.handleChange}>
             {this.optionsBlock()}
           </select>
-          <button onClick={(e)=> this.addIngredients(e)}>Add Ingredients</button>
+          <button onClick={(e)=> this.sendIngredientsToStore(e)}>Add Ingredients</button>
         </form>
       </aside>
     )
@@ -71,7 +74,7 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  setIngredients: (ingredients) => dispatch(setIngredients(ingredients))
+  addIngredients: (ingredients) => dispatch(addIngredients(ingredients))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Sidebar)
