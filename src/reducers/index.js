@@ -1,12 +1,12 @@
 import { combineReducers } from 'redux';
 import  { ingredientsReducer } from './ingredientsReducer'
 import { favoriteCocktailsReducer } from './favoriteCocktailsReducer'
-import { findExactCocktail } from '../actions';
+import { ingredientDetailsReducer } from './ingredientDetailsReducer';
 
 const rootReducer = combineReducers({
   ingredients:ingredientsReducer,
   favoriteCocktails: favoriteCocktailsReducer,
-  exactDrink: findExactCocktail
+  ingredientsDetails: ingredientDetailsReducer
 })
 
 export default rootReducer
