@@ -8,6 +8,7 @@ import {Route} from 'react-router-dom'
 import Search from '../../components/Search/Search'
 import { Favorites } from '../Favorites/Favorites';
 import Ingredients from '../Ingredients/Ingredients';
+import RandomDrink from '../../components/RandomDrink/RandomDrink';
 export class App extends Component {
   constructor(){
     super()
@@ -23,11 +24,11 @@ export class App extends Component {
     return (
       <main>
         <Header />
-        <Sidebar />
-        <Route exact path="/" component={<Search />} />
+        <Route exact path="/" render={()=> <Search />} />
         <Route exact path="/favorites" component={Favorites} />
         <Route path="/ingredients" component={Ingredients} />
-        <Route path ={`/favorites/${this.props.exactDrink}`} />
+        <Route path="/random" component={RandomDrink} />
+        {/* <Route path ={`/favorites/${this.props.exactDrink}`} /> */}
       </main>
     )
   }
