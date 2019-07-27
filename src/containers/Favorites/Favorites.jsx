@@ -3,25 +3,24 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
 export class Favorites extends Component {
-  static propTypes = {
-    prop: PropTypes
+  constructor(props) {
+    super()
   }
-
   showFavorites = () => {
-    this.props.favoriteCocktails.map(drink => {
-      
+    return this.props.favoriteCocktails.map(drink => {
+      return <p>{ drink }</p>
     })
   }
 
   render() {
-    if(!this.props.favoriteCocktails.length) {
+    if(!this.props.favoriteCocktails) {
       return (
         <h2>No Favorite Cocktails added yet</h2>
       )
     }
     return (
       <div>
-        
+        {this.showFavorites()}
       </div>
     )
   }
