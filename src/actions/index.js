@@ -3,8 +3,13 @@ export const findIngredients = (ingredients) => ({
   ingredients
 })
 
-export const setIngredients = (ingredients) => ({
+export const addIngredients = (ingredients) => ({
   type:'ADD_INGREDIENTS',
+  ingredients
+})
+
+export const setIngredientDetails = (ingredients) => ({
+  type:'SET_INGREDIENT_DETAILS',
   ingredients
 })
 
@@ -13,8 +18,8 @@ export const setRecipes = (recipe) => ({
   recipe
 })
 
-export const findExactCocktail=(cocktailName) => ({
-  type: 'FIND_EXACT_COCKTAIL',
-  cocktailName
-})
+// export const findExactCocktail=(cocktailName) => ({
+//   type: 'FIND_EXACT_COCKTAIL',
+//   cocktailName
+// })
 
