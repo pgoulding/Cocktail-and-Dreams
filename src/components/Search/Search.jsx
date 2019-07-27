@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
-import {findDrinkByName} from '../../util/api/apiFetch'
+import { findDrinkbyName } from '../../util/api/apiFetch'
+import './Search.scss'
+import DrinkCard from '../DrinkCard/DrinkCard';
 export class Search extends Component {
   constructor() {
     super()
@@ -13,12 +15,18 @@ export class Search extends Component {
     this.setState({searchInput:[e.target.value]})
   }
 
-  handleSubmit = (e) => {
+  handleSubmit = async (e) => {
     e.preventDefault()
-    const drinkResults = findDrinkByName(this.state.searchInput)
+    const drinkResults = await findDrinkbyName(this.state.searchInput)
     this.setState({searchResults:drinkResults})
+
   }
 
+  showFavorites =() => {
+    return this.state.searchResults.map(result => {
+      return <DrinkCard drinkInfo={result} />
+    })
+  } 
 
   render() {
     return (
@@ -37,6 +45,9 @@ export class Search extends Component {
             Find My Drink!
           </button>
         </form>
+        <div>
+          {this.showFavorites()}
+        </div>
       </div>
     )
   }
