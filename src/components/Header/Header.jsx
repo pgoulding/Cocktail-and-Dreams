@@ -8,8 +8,8 @@ const Header = () => {
       <h1>Mixer</h1>
       </Link>
       <nav>
-        <Link to="/favorites">Ingredients</Link>
-        <Link to="/ingredients">Favorites</Link>
+        <Link to="/ingredients">Ingredients</Link>
+        <Link to="/favorites">Favorites</Link>
         <Link to="/random">Random</Link>
       </nav>
     </header>
