@@ -1,20 +1,35 @@
-.ingredient-card {
+.ingredient-foreground {
   background-color: aqua;
   position: relative;
   z-index:2;
-  padding:10px;
-  &:hover > img.ingredient-image {
-    z-index: -2;
-  }
-  &:hover ~ p.ingredient-description {
-    z-index:4;
-    display: block;
-  }
-
+  height: 100%;
+    &:hover ~ .ingredient-description{
+    z-index:3;
+  } 
   h3 {
     text-align:center;
+    margin:0;
+    padding:10px;
   }
-  p {
+}
+
+.ingredient-image {
+  position: absolute;
+  top:50px;
+  left: 50px;
+  height: 200px;
+  z-index:2;
+}
+
+.ingredient-card{
+  position: relative;
+  z-index:1;
+  &:hover ~ .ingredient-description {
+    z-index:-2;
+  }
+}
+
+.ingredient-description {
     position: absolute;
     height:100%;
     width:100%;
@@ -22,21 +37,10 @@
     top: 0;
     left:0;
     background-color: rgba(#4e4e4e, $alpha: .8);
-    overflow: scroll;
-    z-index:-2;
+    overflow: auto;
+    z-index:-1;
     color:white;
-    &:hover + img.ingredient-image {
-      z-index:-1;
-    }
-  }
-  .ingredient-image {
-    position: absolute;
-    top:50px;
-    left: 50px;
-    height: 200px;
-    z-index:2;
     &:hover {
-      z-index:-2;
+      z-index: 3;
     }
-  }
 }
