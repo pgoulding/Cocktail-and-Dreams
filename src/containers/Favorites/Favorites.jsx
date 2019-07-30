@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import DrinkCard from '../../components/DrinkCard/DrinkCard';
 
-export class Favorites extends Component {
+class Favorites extends Component {
   constructor(props) {
     super(props)
     this.state = {

@@ -12,7 +12,6 @@ const DrinkCard = ({drinkInfo, ingredients, favoriteCocktails, addCocktail, remo
       removeCocktail(drinkInfo.drinkId)
       console.log(drinkCard.drinkId)
     } else {
-      console.log('added')
      addCocktail(drinkCard)
     }
   }
@@ -22,20 +21,24 @@ const DrinkCard = ({drinkInfo, ingredients, favoriteCocktails, addCocktail, remo
       <h3>{drinkCard.drinkName}</h3>
       <div className="drink-card-info">
         <img className="drink-image" src={drinkCard.drinkImageSource} alt={`${drinkCard.drinkName}`} />
-        <p>glass: {drinkCard.glass}</p>
-        <p>{drinkCard.alcoholic}</p>
+        <div>
+          <p>{drinkCard.instructions}</p>
+        </div>
       </div>
       <div className='drink-card-instructions'>
-        {drinkCard.instructions}
         <ul>
         {drinkCard.ingredients.map(item => {
           if (item.ingredient) {
             return <li 
-              className={ingredients.find(name => name.strIngredient === item.ingredient) ? 'found-ingredient': 'no-ingredient'}
+            className={ingredients.find(name => name.strIngredient === item.ingredient) ? 'found-ingredient': 'no-ingredient'}
             >{item.ingredient} : {item.amount}</li>
           }
         })}
         </ul>
+        <div>
+          <p>Type: {drinkCard.alcoholic}</p>
+          <p>Glass: {drinkCard.glass}</p>
+        </div>
       </div>
       <div>
         <button onClick={(e) => updateStore(e)}>

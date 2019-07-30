@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { randomDrink } from '../../util/api/apiFetch';
 import DrinkCard from '../DrinkCard/DrinkCard';
-
+import './RandomDrink.scss'
 export class RandomDrink extends Component {
 constructor() {
   super()
@@ -17,7 +17,7 @@ constructor() {
 
   render() {
     return (
-      <div>
+      <div className="random-drink-container">
         {this.state.drink.length && <DrinkCard drinkInfo={this.state.drink[0]} />}
       </div>
     )

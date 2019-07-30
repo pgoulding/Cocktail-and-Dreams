@@ -1,7 +1,9 @@
 .ingredient-cards-container {
     display: grid;  
     grid-gap: 20px;  
-    padding: 20px;
+    padding: 20px 20px 0 20px;
     grid-template-columns: repeat(auto-fit, minmax(100px, 300px));
     grid-auto-rows: 300px; 
+    background-color: #74ee15;
+    height: 100%;
 }
