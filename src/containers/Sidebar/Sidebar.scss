@@ -4,6 +4,36 @@ aside {
   width:200px;
   float:left;
   height: 100vh;
+  h3{
+    text-align: center;
+  }
+  form{
+    p{
+      text-align: center;
+      margin: 5px;
+    }
+    button{
+      width:100%;
+      background-color: indigo;
+      line-height: 1.5em;
+      font-size: 2vw;
+      color:white;
+      font-weight: 700;
+    }
+    select{
+      width:100%;
+      height:220px;
+      font-size: 2vh;
+      border:none;
+      option{
+        border:1px solid #f000ff;
+        &:hover{
+          background-color: #f000ff;
+          color:white;
+        }
+      }
+    }
+  }
 }
 
 .ingredient__select-output {

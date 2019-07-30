@@ -14,7 +14,8 @@ export class Sidebar extends Component {
 
   async componentDidMount(){
     const ingredientList = await getIngredientList()
-    this.setState({ingredientList})
+    const alphabetizedList = ingredientList.map(item => item.strIngredient1).sort()
+    this.setState({ingredientList: alphabetizedList})
   }
 
   sendIngredientsToStore =async (e) => {
@@ -41,7 +42,7 @@ export class Sidebar extends Component {
 
   optionsBlock = () => {
     return this.state.ingredientList.map(ingredient => {
-      return <option value={ingredient.strIngredient1}>{ingredient.strIngredient1}</option>
+      return <option value={ingredient}>{ingredient}</option>
     })
   }
 
@@ -59,6 +60,7 @@ export class Sidebar extends Component {
             {this.selectedOption()}
         </div>
         <form>
+          <p> Ingredients list (scroll)</p>
           <select value={this.state.selectedIngredients} multiple onChange={this.handleChange}>
             {this.optionsBlock()}
           </select>
