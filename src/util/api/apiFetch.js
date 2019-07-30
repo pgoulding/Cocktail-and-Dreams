@@ -3,7 +3,7 @@ import fetchCleaner from '../fetchCleaner';
 
 const listURL = `https://www.thecocktaildb.com/api/json/v2/${drinksApiKey}/list.php?`
 const searchURL = `https://www.thecocktaildb.com/api/json/v2/${drinksApiKey}/search.php?`
-
+const filterUrl = `https://www.thecocktaildb.com/api/json/v2/${drinksApiKey}/filter.php?`
 export const getIngredientList = async () => {
   try {
     const response = await fetch(`${listURL}i=list`)
@@ -49,5 +49,27 @@ export const randomDrink = async ()=> {
   }
 }
 
+export const drinksByIngredient = async (ingredients) => {
 
+  try {
+    const response = await fetch(`${filterUrl}i=${ingredients}`)
+    const parsed = await response.json()
+    return parsed.drinks
+  } catch (error) {
+    throw Error(error.message)
+  }
+}
+
+
+export const drinksByID = async (ingredients) => {
+  try {
+    const response = await fetch(`${filterUrl}i=${ingredients}`)
+    const parsed = await response.json()
+    const cleaned = fetchCleaner(parsed.drinks)
+    console.log(cleaned)
+    return cleaned
+  } catch (error) {
+    throw Error(error.message)
+  }
+}
 

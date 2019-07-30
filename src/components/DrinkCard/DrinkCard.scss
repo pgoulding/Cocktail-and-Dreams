@@ -7,15 +7,25 @@
   h3{
     text-align: center;
   }
+  .drink-card-info{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    p{
+      margin:0 10px;
+    }
+  }
   .drink-image{
-    height: 100px;
+    height: 200px;
   }
   .drink-card-instructions{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-between;
   }
   ul{
     list-style: none;
+    padding:10px;
     img{
       height:1.2rem;
     }

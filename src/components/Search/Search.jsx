@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { findDrinkbyName } from '../../util/api/apiFetch'
+import { findDrinkbyName, getIngredientList, drinksByIngredient } from '../../util/api/apiFetch'
 import './Search.scss'
 import DrinkCard from '../DrinkCard/DrinkCard';
 export class Search extends Component {
@@ -7,8 +7,17 @@ export class Search extends Component {
     super()
     this.state={
       searchInput:'',
-      searchResults:[]
+      searchResults:[],
+      searchOptions:[],
+      selectedOptions:'',
+      filteredDrinks:[]
     }
+  }
+
+  async componentDidMount() {
+    const ingredientList = await getIngredientList()
+    const alphabetizedList = ingredientList.map(item => item.strIngredient1).sort()
+    this.setState({ searchOptions: alphabetizedList })
   }
 
   handleChange =(e) => {
@@ -19,36 +28,86 @@ export class Search extends Component {
     e.preventDefault()
     const drinkResults = await findDrinkbyName(this.state.searchInput)
     this.setState({searchResults:drinkResults})
-
   }
 
-  showFavorites =() => {
+  showResults =() => {
     return this.state.searchResults.map(result => {
       return <DrinkCard drinkInfo={result} />
     })
   } 
 
+  findDrinkByIngredients = async (e) => {
+    e.preventDefault()
+    const filteredDrinks = await drinksByIngredient(this.state.selectedOptions.toString())
+    this.setState({filteredDrinks})
+    this.setState({selectedOptions:''})
+  }
+
+  handleAddIngredient = (e) => {
+    e.preventDefault()
+    this.setState({selectedOptions: [...this.state.selectedOptions, e.target.value]})
+  }
+
+  filteredDrinksOutput =() => {
+    if(this.state.filteredDrinks.length) {
+      return this.state.filteredDrinks.map(drink => {
+        return <p>{drink.strDrink}</p>
+      })
+    } else {
+      return <p>No Drinks Found</p>
+    }
+  }
+
+  buttonOptions = () =>{
+    return this.state.searchOptions.map(opt => {
+      return <button value={opt.split(' ').join('_')} onClick={(e) => this.handleAddIngredient(e)}>{opt}</button>
+    })
+  }
+
+
+
   render() {
     return (
-      <div>
-        <h3>Search By Name</h3>
-        <form>
-          <label>
-            Name:
-          <input
-          name="cocktailName"
-          value={this.state.searchInput}
-          onChange={this.handleChange}
-          />
-          </label>
-          <button onClick={(e) => this.handleSubmit(e)}>
-            Find My Drink!
-          </button>
-        </form>
-        <div>
-          {this.showFavorites()}
+      <article className="cocktail-search-menus">
+        <div className="cocktail-name-search">
+          <h3>Search By Name</h3>
+          <form>
+            <label>
+              Name:
+            <input
+            name="cocktailName"
+            value={this.state.searchInput}
+            onChange={this.handleChange}
+            />
+            </label>
+            <button onClick={(e) => this.handleSubmit(e)}>
+              Find My Drink!
+            </button>
+          </form>
+      {this.showResults()}
         </div>
-      </div>
+        <div className="cocktail-filter-ingredients">
+          <h3>What Can I Make with these ingredients?</h3>
+          <form>
+            <label>
+              <form>
+                <input 
+                name="cocktail-ingredients"
+                value={this.state.selectedOptions}
+                />
+                <button onClick={(e) => this.findDrinkByIngredients(e)}>
+                  Find My Drink
+                </button>
+                <div className="ingredient__select-output">
+                  {this.buttonOptions()}
+                </div>
+              </form>
+            </label>
+            {this.filteredDrinksOutput()}
+            {/* {this.showOptions()} */}
+          </form>
+        </div>
+      </article>
     )
   }
 }
