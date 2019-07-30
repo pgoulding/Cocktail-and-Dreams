@@ -4,13 +4,6 @@ import { connect } from 'react-redux'
 import IngredientCard from '../../components/IngredientCard/IngredientCard';
 import './Ingredients.scss'
 class Ingredients extends Component {
-  constructor(props) {
-    super()
-    this.state={
-      ingredientsList:[]
-    }
-  }
-
   ingredientCards = () => {
     return this.props.ingredients.map(item => {
       return <IngredientCard ingredient={item} />
@@ -32,8 +25,5 @@ const mapStateToProps = (state) => ({
   ingredients: state.ingredients
 })
 
-const mapDispatchToProps = (dispatch) => ({
 
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(Ingredients)
+export default connect(mapStateToProps)(Ingredients)
