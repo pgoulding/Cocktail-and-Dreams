@@ -10,12 +10,12 @@ On the beginining screen you have two options, you can search for a drink by nam
 
 on the left simply enter the drink name you are thinking of, and press submit to see the drinks that match that name.
 
-![Search Function](./src/images/searchbyName.png)
+![Search Function](./src/images/searchByName.png)
 
 
 If you would like to search drinks by ingredient you can select the ingredients you would like your drink to have, and then it will show you the drink names that match.
 
-![Search Ingredient Func](./src/images/multi-ingrdientSelect.png)
+![Search Ingredient Func](./src/images/multi-ingredientSelect.png)
 
 
 Under ingredients you can add what ingredients you have at the house, see detailed dwscritions for each of those ingredients, and then anytime after you search for a drink it will show you what ingredients you have at your house and which ones you're still missing.
