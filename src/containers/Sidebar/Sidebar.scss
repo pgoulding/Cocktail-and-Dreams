@@ -1,24 +1,30 @@
 aside {
-  background-color: #f000ff;
+  background-color: rgb(70, 70, 70);
   padding:10px;
-  width:200px;
+  width:240px;
   float:left;
   height: 100vh;
+  color: #fff;
   h3{
     text-align: center;
   }
   form{
+    margin: 5px;
     p{
       text-align: center;
       margin: 5px;
     }
     button{
       width:100%;
-      background-color: indigo;
+      background-color: #2356FF;
       line-height: 1.5em;
       font-size: 2vw;
-      color:white;
+      text-shadow: 0 0 3vw rgb(189, 189, 189);
+      color:rgb(199, 199, 199);
       font-weight: 700;
+      &:hover{
+        color:#fff;
+      }
     }
     select{
       width:100%;
@@ -26,10 +32,10 @@ aside {
       font-size: 2vh;
       border:none;
       option{
-        border:1px solid #f000ff;
+        border:1px solid rgb(199, 199, 199);
         &:hover{
-          background-color: #f000ff;
-          color:white;
+          background-color: rgb(199, 199, 199);
+          color:#000;
         }
       }
     }
@@ -37,17 +43,22 @@ aside {
 }
 
 .ingredient__select-output {
-  height: 100px;
+  height: 150px;
   overflow: scroll;
-  border:2px solid rgb(58, 0, 83);
+  border:2px solid rgb(180, 180, 180);
   margin:5px;
   button{
     border:1px solid rgb(58, 0, 83);
     outline: 0;
     margin: 2px;
-    color: white;
-    text-shadow: 1px 1px 1px black;
-    background-color: violet;
+    color: black;
+    font-size: 1rem;
+    &:hover{
+      background-color: rgb(110, 110, 110);
+      color:white;
+    }
+    // text-shadow: 1px 1px 1px black;
+    // background-color: violet;
     border-radius: 4px;
   }
 }

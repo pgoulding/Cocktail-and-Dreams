@@ -1,10 +1,10 @@
 .random-drink-container {
   height: 100vh;
   padding:20px;
-  background-color:#74ee15;
+  background: url(../../images/bar-background.jpg) no-repeat fixed center;
   .drink-card{
-    margin: auto;
-    border: 2px solid #001eff;
+    margin: 20px auto;
+    border: 2px solid rgb(63, 63, 63);
     border-radius: 8px;
   }
 }

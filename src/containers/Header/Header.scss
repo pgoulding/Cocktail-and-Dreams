@@ -6,7 +6,7 @@
 
 header {
   grid-column: 1 / span 2;
-  background-color: indigo;
+  background-color: rgb(39, 39, 39);
   a {
     color:white;
     text-decoration: none;
@@ -46,11 +46,11 @@ h1{
 
 @keyframes flux {
   0%,
-  100% {
+  25% {
     text-shadow: 0 0 1vw #1041FF, 0 0 3vw #1041FF, 0 0 10vw #1041FF, 0 0 10vw #1041FF, 0 0 .4vw #8BFDFE, .5vw .5vw .1vw #147280;
     color: rgb(106, 139, 248);
   }
-  50% {
+  75% {
     text-shadow: 0 0 .5vw #082180, 0 0 1.5vw #082180, 0 0 5vw #082180, 0 0 5vw #082180, 0 0 .2vw #082180, .5vw .5vw .1vw #0A3940;
     color: rgb(39, 65, 151);
   }

@@ -1,7 +1,8 @@
 .ingredient-foreground {
-  background-color: aqua;
+  background-color: rgb(204, 204, 204);
   position: relative;
   z-index:2;
+  border-radius: 8px;
   height: 100%;
     &:hover ~ .ingredient-description{
     z-index:3;
@@ -36,11 +37,29 @@
     margin: 0;
     top: 0;
     left:0;
-    background-color: rgba(#4e4e4e, $alpha: .8);
+    background-color: rgba(#363636, $alpha: .8);
     overflow: auto;
     z-index:-1;
     color:white;
     &:hover {
       z-index: 3;
     }
+    p{
+      padding: 20px;
+    }
+}
+
+.favorite-button {
+  width:100%;
+  line-height: 2vw;
+  cursor: pointer;
+  color:white;
+  background-color: #363636;
+  border-radius: 50px;
+  height: 30px;
+  border: none;
+  
+  &:hover{
+    background-color: #6b6b6b;
+  }
 }
