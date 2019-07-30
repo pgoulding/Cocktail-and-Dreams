@@ -10,22 +10,22 @@ On the beginining screen you have two options, you can search for a drink by nam
 
 on the left simply enter the drink name you are thinking of, and press submit to see the drinks that match that name.
 
-![Search Function]('./src/images/searchbyName.png')
+![Search Function](./src/images/searchbyName.png)
 
 
 If you would like to search drinks by ingredient you can select the ingredients you would like your drink to have, and then it will show you the drink names that match.
 
-![Search Ingredient Func]('./src/images/multi-ingrdientSelect.png')
+![Search Ingredient Func](./src/images/multi-ingrdientSelect.png)
 
 
 Under ingredients you can add what ingredients you have at the house, see detailed dwscritions for each of those ingredients, and then anytime after you search for a drink it will show you what ingredients you have at your house and which ones you're still missing.
 
-![Ingredient Sidebar]('./src/images/sidebar.png')
+![Ingredient Sidebar](./src/images/sidebar.png)
 
 
 finally, if you want to throw caution ton the wind, you can select the random drink page where everytime you refresh, it updates to show you a new exciting drink you can make.
 
-![Random Drink Page]('./src/images/randomdrink.png)
+![Random Drink Page](./src/images/randomdrink.png)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
