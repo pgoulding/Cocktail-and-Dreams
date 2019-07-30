@@ -1,0 +1,46 @@
+.ingredient-foreground {
+  background-color: aqua;
+  position: relative;
+  z-index:2;
+  height: 100%;
+    &:hover ~ .ingredient-description{
+    z-index:3;
+  } 
+  h3 {
+    text-align:center;
+    margin:0;
+    padding:10px;
+  }
+}
+
+.ingredient-image {
+  position: absolute;
+  top:50px;
+  left: 50px;
+  height: 200px;
+  z-index:2;
+}
+
+.ingredient-card{
+  position: relative;
+  z-index:1;
+  &:hover ~ .ingredient-description {
+    z-index:-2;
+  }
+}
+
+.ingredient-description {
+    position: absolute;
+    height:100%;
+    width:100%;
+    margin: 0;
+    top: 0;
+    left:0;
+    background-color: rgba(#4e4e4e, $alpha: .8);
+    overflow: auto;
+    z-index:-1;
+    color:white;
+    &:hover {
+      z-index: 3;
+    }
+}

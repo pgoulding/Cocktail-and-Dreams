@@ -1,16 +1,21 @@
-export const findIngredients = (ingredients) => ({
-  type:'FIND_INGREDIENTS',
+export const addIngredients = (ingredients) => ({
+  type:'ADD_INGREDIENTS',
   ingredients
 })
 
-export const addIngredients = (ingredient) => ({
-  type:'ADD_INGREDIENTS',
+export const removeIngredient= (ingredient) => ({
+  type:'REMOVE_INGREDIENT',
   ingredient
 })
 
-export const setRecipes = (recipe) => ({
-  type: 'SET_RECIPES',
-  recipe
+export const addFavorite = (cocktail) => ({
+  type:'ADD_FAVORITE',
+  cocktail
+})
+
+export const removeFavorite = (drinkId) => ({
+  type:'REMOVE_FAVORITE',
+  drinkId
 })
 
 

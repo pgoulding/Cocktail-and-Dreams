@@ -1,1 +1,1 @@
-export const drinksApiKey = '1'
+export const drinksApiKey = '8673533'

@@ -1,10 +1,12 @@
-import {combineReducers} from 'redux';
-import  {ingredientsReducer} from './ingredientsReducer'
-import {favoriteCocktailsReducer} from './favoriteCocktailsReducer'
+import { combineReducers } from 'redux';
+import  { ingredientsReducer } from './ingredientsReducer'
+import { favoriteCocktailsReducer } from './favoriteCocktailsReducer'
+// import { ingredientDetailsReducer } from './ingredientDetailsReducer';
 
 const rootReducer = combineReducers({
   ingredients:ingredientsReducer,
-  favoriteCocktails: favoriteCocktailsReducer
+  favoriteCocktails: favoriteCocktailsReducer,
+  // ingredientsDetails: ingredientDetailsReducer
 })
 
 export default rootReducer
