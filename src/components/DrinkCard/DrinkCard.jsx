@@ -10,9 +10,8 @@ const DrinkCard = ({drinkInfo, ingredients, favoriteCocktails, addCocktail, remo
     e.preventDefault()
     if (favoriteCocktails.find(favCocktails => favCocktails.drinkId === drinkCard.drinkId)) {
       removeCocktail(drinkInfo.drinkId)
-      console.log(drinkCard.drinkId)
     } else {
-     addCocktail(drinkCard)
+      addCocktail(drinkCard)
     }
   }
 
@@ -30,7 +29,7 @@ const DrinkCard = ({drinkInfo, ingredients, favoriteCocktails, addCocktail, remo
         {drinkCard.ingredients.map(item => {
           if (item.ingredient) {
             return <li 
-            className={ingredients.find(name => name.strIngredient === item.ingredient) ? 'found-ingredient': 'no-ingredient'}
+            className={ingredients.find(name => name.strIngredient.toLowerCase() === item.ingredient.toLowerCase()) ? 'found-ingredient': 'no-ingredient'}
             >{item.ingredient} : {item.amount}</li>
           }
         })}
@@ -41,7 +40,7 @@ const DrinkCard = ({drinkInfo, ingredients, favoriteCocktails, addCocktail, remo
         </div>
       </div>
       <div>
-        <button onClick={(e) => updateStore(e)}>
+        <button className='favorite-button' onClick={(e) => updateStore(e)}>
           Favorite
           {/* {fav ? 'Remove Favorite': ' Add Favorite'} */}
         </button>
