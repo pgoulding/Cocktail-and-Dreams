@@ -1,9 +1,11 @@
 export const favoriteCocktailsReducer = (state=[], action) => {
+  console.log(action)
   switch (action.type) {
     case 'ADD_FAVORITE':
-      return state=[...state, ...action.recipe]
+      return [...state, action.cocktail]
     case 'REMOVE_FAVORITE':
-      return state.filter(recipe => recipe.id !== action.id)
+      const newState = state.filter(cocktail => cocktail.drinkId !== action.drinkId)
+      return newState
     default:
       return state
   }
