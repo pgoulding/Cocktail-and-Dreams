@@ -3,19 +3,20 @@ import { Link } from 'react-router-dom'
 import './Header.scss'
 import { connect } from 'react-redux'
 
-const Header = ({ingredients}) => {
+const Header = ({ingredients, favoriteCocktails}) => {
   return (
     <header>
       <Link to="/">
-      <h1>Mixer</h1>
+        <h1>Cocktails<span> & dreams</span></h1>
       </Link>
       <nav>
         <Link to="/ingredients">
           Ingredients 
-          <span>{ingredients.length}</span>
+          <span>{' '}{ingredients.length}</span>
         </Link>
         <Link to="/favorites">
-          Favorites
+          Favorites 
+          <span>{' '}{favoriteCocktails.length}</span>
         </Link>
         <Link to="/random">
           Random
@@ -25,8 +26,9 @@ const Header = ({ingredients}) => {
   )
 }
 
-const mapStateToProps = ({ingredients}) => ({
-  ingredients
+const mapStateToProps = ({ingredients, favoriteCocktails}) => ({
+  ingredients,
+  favoriteCocktails
 })
 
 export default connect(mapStateToProps)(Header)
