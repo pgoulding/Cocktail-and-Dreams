@@ -1,3 +1,32 @@
+# Cocktails and Dreams
+
+Created by Patrick Goulding using [The CocktailsDB API](https://www.thecocktaildb.com/api.php)
+
+
+On the beginining screen you have two options, you can search for a drink by name, or you can select a drink by what ingredients you would like in it.
+
+![Home Page](./src/images/homePage.png)
+
+
+on the left simply enter the drink name you are thinking of, and press submit to see the drinks that match that name.
+
+![Search Function]('./src/images/searchbyName.png')
+
+
+If you would like to search drinks by ingredient you can select the ingredients you would like your drink to have, and then it will show you the drink names that match.
+
+![Search Ingredient Func]('./src/images/multi-ingrdientSelect.png')
+
+
+Under ingredients you can add what ingredients you have at the house, see detailed dwscritions for each of those ingredients, and then anytime after you search for a drink it will show you what ingredients you have at your house and which ones you're still missing.
+
+![Ingredient Sidebar]('./src/images/sidebar.png')
+
+
+finally, if you want to throw caution ton the wind, you can select the random drink page where everytime you refresh, it updates to show you a new exciting drink you can make.
+
+![Random Drink Page]('./src/images/randomdrink.png)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
@@ -37,32 +66,3 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
