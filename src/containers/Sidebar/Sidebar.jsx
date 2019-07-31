@@ -71,12 +71,8 @@ export class Sidebar extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({
-
-})
-
-const mapDispatchToProps = (dispatch) => ({
+export const mapDispatchToProps = (dispatch) => ({
   addIngredients: (ingredients) => dispatch(addIngredients(ingredients))
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(Sidebar)
+export default connect(null, mapDispatchToProps)(Sidebar)

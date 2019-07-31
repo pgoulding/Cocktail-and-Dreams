@@ -4,6 +4,8 @@ import fetchCleaner from '../fetchCleaner';
 const listURL = `https://www.thecocktaildb.com/api/json/v2/${drinksApiKey}/list.php?`
 const searchURL = `https://www.thecocktaildb.com/api/json/v2/${drinksApiKey}/search.php?`
 const filterUrl = `https://www.thecocktaildb.com/api/json/v2/${drinksApiKey}/filter.php?`
+
+
 export const getIngredientList = async () => {
   try {
     const response = await fetch(`${listURL}i=list`)

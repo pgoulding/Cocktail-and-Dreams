@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import './Header.scss'
 import { connect } from 'react-redux'
 
-const Header = ({ingredients, favoriteCocktails}) => {
+export const Header = ({ingredients, favoriteCocktails}) => {
   return (
     <header>
       <Link to="/">

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { findDrinkbyName, getIngredientList, drinksByIngredient } from '../../util/api/apiFetch'
 import './Search.scss'
-import DrinkCard from '../DrinkCard/DrinkCard';
+import DrinkCard from '../../containers/DrinkCard/DrinkCard';
 export class Search extends Component {
   constructor() {
     super()
@@ -77,11 +77,12 @@ export class Search extends Component {
               Name:
             <input
             name="cocktailName"
+            className="cocktailSearchInput"
             value={this.state.searchInput}
-            onChange={this.handleChange}
+            onChange={(e) => this.handleChange(e)}
             />
             </label>
-            <button className="" onClick={(e) => this.handleSubmit(e)}>
+              <button className="search-submit-button" onClick={(e) => this.handleSubmit(e)}>
               Find My Drink!
             </button>
           </form>
@@ -99,15 +100,15 @@ export class Search extends Component {
                   value={this.state.selectedOptions}
                   />
               </label>
-              <button onClick={(e) => this.findDrinkByIngredients(e)}>
+              <button className="ingredient-submit-button" onClick={(e) => this.findDrinkByIngredients(e)}>
                 Find My Drink
               </button>
               <div className="ingredient__select-output">
                 { this.buttonOptions() }
               </div>
             </form>
-          </div>
             {this.filteredDrinksOutput()}
+          </div>
         </div>
       </article>
     )

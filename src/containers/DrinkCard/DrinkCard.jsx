@@ -3,7 +3,7 @@ import './DrinkCard.scss'
 import { connect } from 'react-redux'
 import { addFavorite, removeFavorite } from '../../actions/index'
 
-const DrinkCard = ({drinkInfo, ingredients, favoriteCocktails, addCocktail, removeCocktail}) => {
+export const DrinkCard = ({drinkInfo, ingredients, favoriteCocktails, addCocktail, removeCocktail}) => {
   const drinkCard = {...drinkInfo}
 
  const updateStore = (e) => {
@@ -30,7 +30,7 @@ const DrinkCard = ({drinkInfo, ingredients, favoriteCocktails, addCocktail, remo
           if (item.ingredient) {
             return <li 
             className={ingredients.find(name => name.strIngredient.toLowerCase() === item.ingredient.toLowerCase()) ? 'found-ingredient': 'no-ingredient'}
-            >{item.ingredient} : {item.amount}</li>
+            key={item.amount+Date.now()}>{item.ingredient} : {item.amount}</li>
           }
         })}
         </ul>
