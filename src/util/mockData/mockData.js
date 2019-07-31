@@ -7,7 +7,7 @@ export const ingredientsList = [
   {"strIngredient1": "Triple sec"},
   {"strIngredient1": "Apple brandy"},
   {"strIngredient1": "Carbonated water"},
-  {"strIngredient1": "Chocolate syrup"},
+  {"strIngredient1": "Chocolate syrup"}
 ]
 
 export const mockUserIngredients =[
