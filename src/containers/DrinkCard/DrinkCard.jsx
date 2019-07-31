@@ -49,12 +49,12 @@ export const DrinkCard = ({drinkInfo, ingredients, favoriteCocktails, addCocktai
   ) 
 }
 
-const mapStateToProps = ({ingredients, favoriteCocktails}) => ({
+export const mapStateToProps = ({ingredients, favoriteCocktails}) => ({
   ingredients,
   favoriteCocktails
 })
 
-const mapDispatchToProps = (dispatch) => ({
+export const mapDispatchToProps = (dispatch) => ({
   addCocktail: (cocktail) => dispatch(addFavorite(cocktail)),
   removeCocktail: (id) => dispatch(removeFavorite(id))
 })
