@@ -22,7 +22,7 @@ export const Favorites =({favoriteCocktails}) => {
   )
 }
 
-const mapStateToProps = ({favoriteCocktails}) => ({
+export const mapStateToProps = ({favoriteCocktails}) => ({
   favoriteCocktails
 })
 

@@ -1,6 +1,7 @@
-import { Favorites } from './Favorites'
+import { Favorites, mapStateToProps } from './Favorites'
 import { mockCleanedDrink } from '../../util/mockData/mockData';
 import { shallow } from 'enzyme'
+
 import React from 'react';
 
 describe('Favorites', () => {
@@ -15,6 +16,15 @@ describe('Favorites', () => {
     wrapper.instance().showFavorites = jest.fn()
     wrapper.instance().showFavorites()
     expect(wrapper.instance().showFavorites).toHaveBeenCalled()
+  })
+
+  it('should map the favoriteCocktails to state', () => {
+    const mockfavoriteCocktails = [mockCleanedDrink]
+    const expected = {
+      favoriteCocktails: [mockfavoriteCocktails]
+    }
+    const mappedProps = mapStateToProps({ favoriteCocktails: [mockfavoriteCocktails] })
+    expect(mappedProps).toEqual(expected)
   })
 
 })
