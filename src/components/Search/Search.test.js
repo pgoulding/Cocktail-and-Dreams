@@ -1,7 +1,25 @@
 import Search from './Search'
-import { mockDrink, mockUserIngredients } from '../../util/mockData/mockData';
+import { mockDrink, mockUserIngredients, mockCleanedDrink, ingredientsList } from '../../util/mockData/mockData';
 import { shallow } from 'enzyme'
 import React from 'react';
+
+
+jest.mock('../../util/api/apiFetch', () => ({
+  getIngredientList: jest.fn().mockImplementation(() => {
+    return [{ "strIngredient1": "Dark rum" },
+      { "strIngredient1": "Sweet Vermouth" },
+      { "strIngredient1": "Strawberry schnapps" },
+      { "strIngredient1": "Scotch" },
+      { "strIngredient1": "Apricot brandy" },
+      { "strIngredient1": "Triple sec" },
+      { "strIngredient1": "Apple brandy" },
+      { "strIngredient1": "Carbonated water" },
+      { "strIngredient1": "Chocolate syrup" }];
+  }),
+  findDrinkbyName: jest.fn().mockImplementation(() => {
+    return [mockCleanedDrink]
+  })
+}));
 
 describe('Search', () => {
 let e;
@@ -45,6 +63,20 @@ let wrapper;
     const mockEvent = { preventDefault: jest.fn() };
     wrapper.find('.ingredient-submit-button').simulate('click', mockEvent)
     expect(wrapper.instance().findDrinkByIngredients).toHaveBeenCalled()
+  })
+
+  it('should map over the ingredients supplied, alpahbetize them, and add to state', () => {
+    wrapper.instance().componentDidMount()
+    const alpahabetizedIngredients = [{ "strIngredient1": "Dark rum" },
+    { "strIngredient1": "Sweet Vermouth" },
+    { "strIngredient1": "Strawberry schnapps" },
+    { "strIngredient1": "Scotch" },
+    { "strIngredient1": "Apricot brandy" },
+    { "strIngredient1": "Triple sec" },
+    { "strIngredient1": "Apple brandy" },
+    { "strIngredient1": "Carbonated water" },
+    { "strIngredient1": "Chocolate syrup" }].map(item => item.strIngredient1).sort()
+    expect(wrapper.state('searchOptions')).toEqual(alpahabetizedIngredients)
   })
 
 })
