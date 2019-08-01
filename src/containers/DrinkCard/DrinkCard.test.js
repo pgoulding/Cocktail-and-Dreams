@@ -29,7 +29,7 @@ let wrapper;
       { id: 2, name: 'soda' },
       { id: 3, name: 'lime' },
     ]
-
+    
     const expected = {
       favoriteCocktails: [], ingredients: mockIngredients
     }

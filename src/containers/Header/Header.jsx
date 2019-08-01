@@ -26,7 +26,7 @@ export const Header = ({ingredients, favoriteCocktails}) => {
   )
 }
 
-const mapStateToProps = ({ingredients, favoriteCocktails}) => ({
+export const mapStateToProps = ({ingredients, favoriteCocktails}) => ({
   ingredients,
   favoriteCocktails
 })

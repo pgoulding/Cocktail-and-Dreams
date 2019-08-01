@@ -5,10 +5,22 @@ import React from 'react';
 import {mapDispatchToProps} from './Sidebar'
 import {addIngredients} from '../../actions/index'
 import {getIngredientList} from '../../util/api/apiFetch'
+
 describe('Sidebar', () => {
 
+  let wrapper;
+  let e;
+  beforeEach(() =>{
+    wrapper = shallow(<Sidebar addIngredients={jest.fn()}/>)
+    e = {
+      preventDefault: jest.fn(),
+      target: {
+        name: 'cocktailName',
+        value: 'margarita'
+      }
+    }
+  })
   it('should match the snapshot', () => {
-    let wrapper = shallow(<Sidebar addIngredients={jest.fn()}/>)
     expect(wrapper).toMatchSnapshot()
   })
 
@@ -28,6 +40,18 @@ describe('Sidebar', () => {
     expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch)
   })
 
+  it('should handleChange', ()=> {
+    wrapper.instance().handleChange = jest.fn();
+    const mockEvent = { preventDefault: jest.fn() }
+    wrapper.find('.ingredients-list-select').simulate('change', mockEvent);
+    expect(wrapper.instance().handleChange).toHaveBeenCalled();
+  })
 
+  it('should call sendIngredieintsToStore on button click', () => {
+    wrapper.instance().sendIngredientsToStore = jest.fn()
+    const mockEvent = { preventDefault: jest.fn() }
+    wrapper.find('.send-ingredients-button').simulate('click', mockEvent)
+    expect(wrapper.instance().sendIngredientsToStore).toHaveBeenCalled()
+  })
 
 })

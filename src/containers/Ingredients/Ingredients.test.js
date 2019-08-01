@@ -10,4 +10,8 @@ describe('Ingredients', () => {
     expect(wrapper).toMatchSnapshot()
   })
 
+  it('should map ingredients to props', () => {
+    
+  })
+
 })

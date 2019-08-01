@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { addIngredients } from '../../actions/index'
 import './Sidebar.scss'
 export class Sidebar extends Component {
-  constructor(props) {
+  constructor() {
     super()
     this.state={
       ingredientList:[],
@@ -48,7 +48,7 @@ export class Sidebar extends Component {
 
   selectedOption = () => {
     return this.state.selectedIngredients.map(selected => {
-      return <button value={selected} onClick={(e)=> this.removeItem(e)}>{selected}</button>
+      return <button value={selected} className="single-ingredient-button" onClick={(e)=> this.removeItem(e)}>{selected}</button>
     })
   }
 
@@ -61,10 +61,10 @@ export class Sidebar extends Component {
         </div>
         <form>
           <p> Ingredients list (scroll)</p>
-          <select value={this.state.selectedIngredients} multiple onChange={this.handleChange}>
+          <select className="ingredients-list-select" value={this.state.selectedIngredients} multiple onChange={(e) => this.handleChange(e)}>
             {this.optionsBlock()}
           </select>
-          <button onClick={(e)=> this.sendIngredientsToStore(e)}>Add Ingredients</button>
+          <button className="send-ingredients-button" onClick={(e)=> this.sendIngredientsToStore(e)}>Add Ingredients</button>
         </form>
       </aside>
     )
