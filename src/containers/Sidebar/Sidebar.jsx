@@ -48,7 +48,7 @@ export class Sidebar extends Component {
 
   selectedOption = () => {
     return this.state.selectedIngredients.map(selected => {
-      return <button value={selected} className="single-ingredient-button" onClick={(e)=> this.removeItem(e)}>{selected}</button>
+      return <button value={selected} id={selected}className="single-ingredient-button" onClick={(e)=> this.removeItem(e)}>{selected}</button>
     })
   }
 
