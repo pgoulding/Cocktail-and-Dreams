@@ -4,7 +4,7 @@
     padding: 20px 20px 0 20px;
     grid-template-columns: repeat(auto-fit, minmax(100px, 300px));
     grid-auto-rows: 300px; 
-    background-color: #74ee15;
+    background: url(../../images/bar-background.jpg) no-repeat fixed center;
     height: 100%;
     overflow: scroll;
 }

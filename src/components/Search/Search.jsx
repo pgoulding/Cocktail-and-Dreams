@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { findDrinkbyName, getIngredientList, drinksByIngredient } from '../../util/api/apiFetch'
 import './Search.scss'
-import DrinkCard from '../DrinkCard/DrinkCard';
+import DrinkCard from '../../containers/DrinkCard/DrinkCard';
 export class Search extends Component {
   constructor() {
     super()
@@ -49,7 +49,7 @@ export class Search extends Component {
   }
 
   filteredDrinksOutput =() => {
-    if(this.state.filteredDrinks.length) {
+    if(Array.isArray(this.state.filteredDrinks)) {
       return this.state.filteredDrinks.map(drink => {
         return <p>{drink.strDrink}</p>
       })
@@ -70,42 +70,45 @@ export class Search extends Component {
     return (
       <article className="cocktail-search-menus">
         <div className="cocktail-name-search">
+          <div className="form-container">
           <h3>Search By Name</h3>
           <form>
             <label>
               Name:
             <input
             name="cocktailName"
+            className="cocktailSearchInput"
             value={this.state.searchInput}
-            onChange={this.handleChange}
+            onChange={(e) => this.handleChange(e)}
             />
             </label>
-            <button onClick={(e) => this.handleSubmit(e)}>
+              <button className="search-submit-button" onClick={(e) => this.handleSubmit(e)}>
               Find My Drink!
             </button>
           </form>
-      {this.showResults()}
+          </div>
+      { this.showResults() }
         </div>
         <div className="cocktail-filter-ingredients">
-          <h3>What Can I Make with these ingredients?</h3>
-          <form>
-            <label>
-              <form>
-                <input 
-                name="cocktail-ingredients"
-                value={this.state.selectedOptions}
-                />
-                <button onClick={(e) => this.findDrinkByIngredients(e)}>
-                  Find My Drink
-                </button>
-                <div className="ingredient__select-output">
-                  {this.buttonOptions()}
-                </div>
-              </form>
-            </label>
+          <div className="form-container">
+            <h3>What Can I Make?</h3>
+            <form>
+              <label>
+                Cocktail Ingredients
+                  <input 
+                  name="cocktail-ingredients"
+                  value={this.state.selectedOptions}
+                  />
+              </label>
+              <button className="ingredient-submit-button" onClick={(e) => this.findDrinkByIngredients(e)}>
+                Find My Drink
+              </button>
+              <div className="ingredient__select-output">
+                { this.buttonOptions() }
+              </div>
+            </form>
             {this.filteredDrinksOutput()}
-            {/* {this.showOptions()} */}
-          </form>
+          </div>
         </div>
       </article>
     )

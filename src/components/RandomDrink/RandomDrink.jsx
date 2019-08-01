@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { randomDrink } from '../../util/api/apiFetch';
-import DrinkCard from '../DrinkCard/DrinkCard';
+import DrinkCard from '../../containers/DrinkCard/DrinkCard';
 import './RandomDrink.scss'
 export class RandomDrink extends Component {
 constructor() {

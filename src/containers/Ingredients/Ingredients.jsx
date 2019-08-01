@@ -3,10 +3,10 @@ import Sidebar from '../Sidebar/Sidebar'
 import { connect } from 'react-redux'
 import IngredientCard from '../../components/IngredientCard/IngredientCard';
 import './Ingredients.scss'
-class Ingredients extends Component {
+export class Ingredients extends Component {
   ingredientCards = () => {
     return this.props.ingredients.map(item => {
-      return <IngredientCard ingredient={item} />
+      return <IngredientCard key={item.idIngredient} ingredient={item} />
     })
   }
 

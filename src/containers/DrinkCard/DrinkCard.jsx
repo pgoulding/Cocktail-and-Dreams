@@ -3,16 +3,15 @@ import './DrinkCard.scss'
 import { connect } from 'react-redux'
 import { addFavorite, removeFavorite } from '../../actions/index'
 
-const DrinkCard = ({drinkInfo, ingredients, favoriteCocktails, addCocktail, removeCocktail}) => {
+export const DrinkCard = ({drinkInfo, ingredients, favoriteCocktails, addCocktail, removeCocktail}) => {
   const drinkCard = {...drinkInfo}
 
  const updateStore = (e) => {
     e.preventDefault()
     if (favoriteCocktails.find(favCocktails => favCocktails.drinkId === drinkCard.drinkId)) {
       removeCocktail(drinkInfo.drinkId)
-      console.log(drinkCard.drinkId)
     } else {
-     addCocktail(drinkCard)
+      addCocktail(drinkCard)
     }
   }
 
@@ -30,8 +29,8 @@ const DrinkCard = ({drinkInfo, ingredients, favoriteCocktails, addCocktail, remo
         {drinkCard.ingredients.map(item => {
           if (item.ingredient) {
             return <li 
-            className={ingredients.find(name => name.strIngredient === item.ingredient) ? 'found-ingredient': 'no-ingredient'}
-            >{item.ingredient} : {item.amount}</li>
+            className={ingredients.find(name => name.strIngredient.toLowerCase() === item.ingredient.toLowerCase()) ? 'found-ingredient': 'no-ingredient'}
+            key={item.amount+Date.now()}>{item.ingredient} : {item.amount}</li>
           }
         })}
         </ul>
@@ -41,7 +40,7 @@ const DrinkCard = ({drinkInfo, ingredients, favoriteCocktails, addCocktail, remo
         </div>
       </div>
       <div>
-        <button onClick={(e) => updateStore(e)}>
+        <button className='favorite-button' onClick={(e) => updateStore(e)}>
           Favorite
           {/* {fav ? 'Remove Favorite': ' Add Favorite'} */}
         </button>
@@ -50,12 +49,12 @@ const DrinkCard = ({drinkInfo, ingredients, favoriteCocktails, addCocktail, remo
   ) 
 }
 
-const mapStateToProps = ({ingredients, favoriteCocktails}) => ({
+export const mapStateToProps = ({ingredients, favoriteCocktails}) => ({
   ingredients,
   favoriteCocktails
 })
 
-const mapDispatchToProps = (dispatch) => ({
+export const mapDispatchToProps = (dispatch) => ({
   addCocktail: (cocktail) => dispatch(addFavorite(cocktail)),
   removeCocktail: (id) => dispatch(removeFavorite(id))
 })
